@@ -11,7 +11,7 @@ import static org.mockito.Mockito.mock;
 public class PrintStatementsAcceptanceTest {
 
     private Console console = mock(Console.class);
-    private Account account;
+    private Account account = new Account();
 
     @Test
     public void print_all_transactions_in_reverse_chronological_order_and_with_good_balance() throws Exception {
