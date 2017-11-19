@@ -15,4 +15,10 @@ public class AccountTest {
         account.deposit(100);
         verify(transactionRepository).addDeposit(100);
     }
+
+    @Test
+    public void stores_a_withdrawal() throws Exception {
+        account.withdraw(100);
+        verify(transactionRepository).addWithdrawal(100);
+    }
 }
