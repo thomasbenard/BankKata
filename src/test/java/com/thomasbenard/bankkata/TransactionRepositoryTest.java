@@ -1,7 +1,6 @@
 package com.thomasbenard.bankkata;
 
 import org.junit.Test;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -20,6 +19,6 @@ public class TransactionRepositoryTest {
     }
 
     private Transaction transaction(String date, int amount) {
-        throw new NotImplementedException();
+        return new Transaction(date, amount);
     }
 }
