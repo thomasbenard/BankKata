@@ -3,14 +3,14 @@ package com.thomasbenard.bankkata;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class AccountTest {
 
     private TransactionRepository transactionRepository = mock(TransactionRepository.class);
+    private StatementPrinter statementPrinter = mock(StatementPrinter.class);
     private final Account account = new Account(transactionRepository);
 
     @Test
