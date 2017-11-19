@@ -1,7 +1,5 @@
 package com.thomasbenard.bankkata;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +17,8 @@ public class TransactionRepository {
     }
 
     void addWithdrawal(int amount) {
-        throw new NotImplementedException();
+        Transaction withdrawal = new Transaction(clock.todayAsString(), -amount);
+        transactions.add(withdrawal);
     }
 
     List<Transaction> allTransactions() {
