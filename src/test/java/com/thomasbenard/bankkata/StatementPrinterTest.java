@@ -12,7 +12,7 @@ public class StatementPrinterTest {
 
     private static final List<Transaction> NO_TRANSACTIONS = emptyList();
     private Console console = mock(Console.class);
-    private StatementPrinter statementPrinter = new StatementPrinter();
+    private StatementPrinter statementPrinter = new StatementPrinter(console);
     private final InOrder inOrder = inOrder(console);
 
     @Test

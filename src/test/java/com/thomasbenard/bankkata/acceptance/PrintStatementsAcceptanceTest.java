@@ -12,7 +12,7 @@ public class PrintStatementsAcceptanceTest {
     private Console console = mock(Console.class);
     private Clock clock = mock(Clock.class);
     private TransactionRepository transactionRepository = new TransactionRepository(clock);
-    private StatementPrinter statementPrinter = new StatementPrinter();
+    private StatementPrinter statementPrinter = new StatementPrinter(console);
     private Account account = new Account(transactionRepository, statementPrinter);
 
     @Test
