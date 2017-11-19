@@ -1,7 +1,6 @@
 package com.thomasbenard.bankkata;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -13,7 +12,7 @@ public class Clock {
         return DD_MM_YYYY.format(today());
     }
 
-    private Date today() {
-        return new GregorianCalendar(2017, Calendar.NOVEMBER, 17).getTime();
+    protected Date today() {
+        return new GregorianCalendar().getTime();
     }
 }
