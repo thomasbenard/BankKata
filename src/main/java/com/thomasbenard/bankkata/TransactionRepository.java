@@ -6,4 +6,8 @@ public class TransactionRepository {
     void addDeposit(int amount) {
         throw new NotImplementedException();
     }
+
+    void addWithdrawal(int amount) {
+        throw new NotImplementedException();
+    }
 }

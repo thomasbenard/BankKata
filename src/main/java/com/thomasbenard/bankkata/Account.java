@@ -15,7 +15,7 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-        throw new NotImplementedException();
+        transactionRepository.addWithdrawal(amount);
     }
 
     public void printStatements() {
