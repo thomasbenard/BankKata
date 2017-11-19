@@ -27,6 +27,13 @@ public class TransactionRepositoryTest {
         assertThat(transactions, contains(transaction("18/11/2017", 100)));
     }
 
+    @Test
+    public void addWithdrawal_creates_and_stores_a_withdrawal_transaction() throws Exception {
+        transactionRepository.addWithdrawal(100);
+        List<Transaction> transactions = transactionRepository.allTransactions();
+        assertThat(transactions, contains(transaction("18/11/2017", -100)));
+    }
+
     private Transaction transaction(String date, int amount) {
         return new Transaction(date, amount);
     }
