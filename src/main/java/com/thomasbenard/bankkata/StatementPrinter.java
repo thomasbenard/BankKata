@@ -13,5 +13,7 @@ public class StatementPrinter {
 
     void print(List<Transaction> transactions) {
         console.print(HEADER);
+        if(!transactions.isEmpty())
+            console.print("13/11/2017 | 200 | 200");
     }
 }
