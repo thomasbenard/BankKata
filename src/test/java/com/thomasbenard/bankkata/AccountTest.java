@@ -11,7 +11,7 @@ public class AccountTest {
 
     private TransactionRepository transactionRepository = mock(TransactionRepository.class);
     private StatementPrinter statementPrinter = mock(StatementPrinter.class);
-    private final Account account = new Account(transactionRepository);
+    private final Account account = new Account(transactionRepository, statementPrinter);
 
     @Test
     public void stores_a_deposit() throws Exception {

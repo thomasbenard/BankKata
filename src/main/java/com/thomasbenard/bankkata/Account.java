@@ -1,13 +1,14 @@
 package com.thomasbenard.bankkata;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import java.util.List;
 
 public class Account {
     private final TransactionRepository transactionRepository;
+    private final StatementPrinter statementPrinter;
 
-    public Account(TransactionRepository transactionRepository) {
-
+    public Account(TransactionRepository transactionRepository, StatementPrinter statementPrinter) {
         this.transactionRepository = transactionRepository;
+        this.statementPrinter = statementPrinter;
     }
 
     public void deposit(int amount) {
@@ -19,6 +20,7 @@ public class Account {
     }
 
     public void printStatements() {
-        throw new NotImplementedException();
+        List<Transaction> transactions = transactionRepository.allTransactions();
+        statementPrinter.print(transactions);
     }
 }
