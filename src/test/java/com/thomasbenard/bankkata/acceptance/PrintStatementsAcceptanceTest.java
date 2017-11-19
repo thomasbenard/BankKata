@@ -1,9 +1,6 @@
 package com.thomasbenard.bankkata.acceptance;
 
-import com.thomasbenard.bankkata.Account;
-import com.thomasbenard.bankkata.Console;
-import com.thomasbenard.bankkata.StatementPrinter;
-import com.thomasbenard.bankkata.TransactionRepository;
+import com.thomasbenard.bankkata.*;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -13,7 +10,8 @@ import static org.mockito.Mockito.mock;
 public class PrintStatementsAcceptanceTest {
 
     private Console console = mock(Console.class);
-    private TransactionRepository transactionRepository = new TransactionRepository();
+    private Clock clock = mock(Clock.class);
+    private TransactionRepository transactionRepository = new TransactionRepository(clock);
     private StatementPrinter statementPrinter = new StatementPrinter();
     private Account account = new Account(transactionRepository, statementPrinter);
 
