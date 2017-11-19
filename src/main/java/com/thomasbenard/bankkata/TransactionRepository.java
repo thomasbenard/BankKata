@@ -14,7 +14,7 @@ public class TransactionRepository {
     }
 
     void addDeposit(int amount) {
-        Transaction deposit = new Transaction("18/11/2017", 100);
+        Transaction deposit = new Transaction(clock.todayAsString(), amount);
         transactions.add(deposit);
     }
 
