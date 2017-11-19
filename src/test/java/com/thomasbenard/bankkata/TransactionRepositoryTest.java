@@ -1,5 +1,6 @@
 package com.thomasbenard.bankkata;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,9 +15,13 @@ public class TransactionRepositoryTest {
     private Clock clock = mock(Clock.class);
     private final TransactionRepository transactionRepository = new TransactionRepository(clock);
 
+    @Before
+    public void setUp() throws Exception {
+        when(clock.todayAsString()).thenReturn("18/11/2017");
+    }
+
     @Test
     public void deposit_creates_and_stores_a_deposit_transaction() throws Exception {
-        when(clock.todayAsString()).thenReturn("18/11/2017");
         transactionRepository.addDeposit(100);
         List<Transaction> transactions = transactionRepository.allTransactions();
         assertThat(transactions, contains(transaction("18/11/2017", 100)));
