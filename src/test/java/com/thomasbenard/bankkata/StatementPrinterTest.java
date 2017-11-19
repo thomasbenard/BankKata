@@ -11,6 +11,7 @@ import static org.mockito.Mockito.*;
 public class StatementPrinterTest {
 
     private static final List<Transaction> NO_TRANSACTIONS = emptyList();
+
     private Console console = mock(Console.class);
     private StatementPrinter statementPrinter = new StatementPrinter(console);
     private final InOrder inOrder = inOrder(console);
