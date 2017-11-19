@@ -8,7 +8,7 @@ import static org.mockito.Mockito.verify;
 public class AccountTest {
 
     private TransactionRepository transactionRepository = mock(TransactionRepository.class);
-    private final Account account = new Account();
+    private final Account account = new Account(transactionRepository);
 
     @Test
     public void stores_a_deposit() throws Exception {

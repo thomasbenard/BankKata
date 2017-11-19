@@ -2,6 +2,7 @@ package com.thomasbenard.bankkata.acceptance;
 
 import com.thomasbenard.bankkata.Account;
 import com.thomasbenard.bankkata.Console;
+import com.thomasbenard.bankkata.TransactionRepository;
 import org.junit.Test;
 import org.mockito.InOrder;
 
@@ -11,7 +12,8 @@ import static org.mockito.Mockito.mock;
 public class PrintStatementsAcceptanceTest {
 
     private Console console = mock(Console.class);
-    private Account account = new Account();
+    private TransactionRepository transactionRepository = new TransactionRepository();
+    private Account account = new Account(transactionRepository);
 
     @Test
     public void print_all_transactions_in_reverse_chronological_order_and_with_good_balance() throws Exception {
