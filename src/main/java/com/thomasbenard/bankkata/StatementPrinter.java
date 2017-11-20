@@ -20,12 +20,13 @@ public class StatementPrinter {
                 console.print("14/11/2017 | -100 | 100");
             }
             Transaction transaction = transactions.get(0);
-            String statement = formatStatement(transaction);
+            int balance = transaction.getAmount();
+            String statement = formatStatement(transaction, balance);
             console.print(statement);
         }
     }
 
-    private String formatStatement(Transaction transaction) {
-        return format("%s | %d | %d", transaction.getDate(), transaction.getAmount(), transaction.getAmount());
+    private String formatStatement(Transaction transaction, int balance) {
+        return format("%s | %d | %d", transaction.getDate(), transaction.getAmount(), balance);
     }
 }
