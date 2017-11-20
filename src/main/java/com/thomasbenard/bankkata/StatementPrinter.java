@@ -17,10 +17,13 @@ public class StatementPrinter {
         console.print(HEADER);
         if (!transactions.isEmpty()) {
             if (transactions.size() == 2) {
-                console.print("14/11/2017 | -100 | 100");
+                int balance = transactions.get(1).getAmount() + transactions.get(0).getAmount();
+                Transaction transaction = transactions.get(1);
+                String statement = formatStatement(transaction, balance);
+                console.print(statement);
             }
+            int balance = transactions.get(0).getAmount();
             Transaction transaction = transactions.get(0);
-            int balance = transaction.getAmount();
             String statement = formatStatement(transaction, balance);
             console.print(statement);
         }
