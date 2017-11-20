@@ -15,12 +15,8 @@ public class StatementPrinter {
 
     void print(List<Transaction> transactions) {
         console.print(HEADER);
-        if (!transactions.isEmpty()) {
-            if (transactions.size() == 2) {
-                String statement = createStatement(transactions, 1);
-                console.print(statement);
-            }
-            String statement = createStatement(transactions, 0);
+        for (int i = transactions.size() - 1; i >= 0; i--) {
+            String statement = createStatement(transactions, i);
             console.print(statement);
         }
     }
