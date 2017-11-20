@@ -22,9 +22,10 @@ public class StatementPrinter {
     }
 
     private int computeBalance(List<Transaction> transactions, int index) {
-        if (index == 0)
-            return transactions.get(0).getAmount();
-        return transactions.get(1).getAmount() + transactions.get(0).getAmount();
+        int balance = 0;
+        for (int i = 0; i <= index; i++)
+            balance += transactions.get(i).getAmount();
+        return balance;
     }
 
     private String createStatement(List<Transaction> transactions, int index) {
