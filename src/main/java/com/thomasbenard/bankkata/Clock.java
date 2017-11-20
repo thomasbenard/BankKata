@@ -8,7 +8,7 @@ public class Clock {
 
     private static final SimpleDateFormat DD_MM_YYYY = new SimpleDateFormat("dd/MM/yyyy");
 
-    String todayAsString() {
+    public String todayAsString() {
         return DD_MM_YYYY.format(today());
     }
 
