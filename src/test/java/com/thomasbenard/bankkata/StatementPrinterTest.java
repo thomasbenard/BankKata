@@ -5,6 +5,7 @@ import org.mockito.InOrder;
 
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.mockito.Mockito.inOrder;
@@ -30,6 +31,18 @@ public class StatementPrinterTest {
         List<Transaction> transactions = singletonList(new Transaction("13/11/2017", 200));
         statementPrinter.print(transactions);
         inOrder.verify(console).print("DATE | AMOUNT | BALANCE");
+        inOrder.verify(console).print("13/11/2017 | 200 | 200");
+        inOrder.verifyNoMoreInteractions();
+    }
+
+    @Test
+    public void prints_two_transactions() throws Exception {
+        List<Transaction> transactions = asList(
+                new Transaction("13/11/2017", 200),
+                new Transaction("14/11/2017", -100));
+        statementPrinter.print(transactions);
+        inOrder.verify(console).print("DATE | AMOUNT | BALANCE");
+        inOrder.verify(console).print("14/11/2017 | -100 | 100");
         inOrder.verify(console).print("13/11/2017 | 200 | 200");
         inOrder.verifyNoMoreInteractions();
     }
