@@ -17,14 +17,10 @@ public class StatementPrinter {
         console.print(HEADER);
         if (!transactions.isEmpty()) {
             if (transactions.size() == 2) {
-                int balance = computeBalance(transactions, 1);
-                Transaction transaction = transactions.get(1);
-                String statement = formatStatement(transaction, balance);
+                String statement = createStatement(transactions, 1);
                 console.print(statement);
             }
-            int balance = computeBalance(transactions, 0);
-            Transaction transaction = transactions.get(0);
-            String statement = formatStatement(transaction, balance);
+            String statement = createStatement(transactions, 0);
             console.print(statement);
         }
     }
@@ -33,6 +29,12 @@ public class StatementPrinter {
         if (index == 0)
             return transactions.get(0).getAmount();
         return transactions.get(1).getAmount() + transactions.get(0).getAmount();
+    }
+
+    private String createStatement(List<Transaction> transactions, int index) {
+        int balance = computeBalance(transactions, index);
+        Transaction transaction = transactions.get(index);
+        return formatStatement(transaction, balance);
     }
 
     private String formatStatement(Transaction transaction, int balance) {
