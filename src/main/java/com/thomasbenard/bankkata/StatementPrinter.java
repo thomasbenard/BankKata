@@ -2,6 +2,8 @@ package com.thomasbenard.bankkata;
 
 import java.util.List;
 
+import static java.lang.String.format;
+
 public class StatementPrinter {
 
     private static final String HEADER = "DATE | AMOUNT | BALANCE";
@@ -13,7 +15,14 @@ public class StatementPrinter {
 
     void print(List<Transaction> transactions) {
         console.print(HEADER);
-        if(!transactions.isEmpty())
-            console.print("13/11/2017 | 200 | 200");
+        if(!transactions.isEmpty()) {
+            Transaction transaction = transactions.get(0);
+            String statement = formatStatement(transaction);
+            console.print(statement);
+        }
+    }
+
+    private String formatStatement(Transaction transaction) {
+        return format("%s | %d | %d", transaction.getDate(), transaction.getAmount(), transaction.getAmount());
     }
 }
