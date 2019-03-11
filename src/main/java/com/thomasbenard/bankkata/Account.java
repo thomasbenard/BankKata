@@ -1,6 +1,5 @@
 package com.thomasbenard.bankkata;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
@@ -21,13 +20,7 @@ public class Account {
     }
 
     List<String> statements() {
-        List<String> statementMessages = new ArrayList<>();
-        List<Statement> statements = statementRepository.allStatements();
-        Money balance = new Money(0);
-        for (Statement statement : statements) {
-            balance = statement.computeNewBalance(balance);
-            statementMessages.add(statement.print(balance));
-        }
-        return statementMessages;
+        StatementFormatter statementFormatter = new StatementFormatter();
+        return statementFormatter.format(statementRepository.allStatements());
     }
 }
