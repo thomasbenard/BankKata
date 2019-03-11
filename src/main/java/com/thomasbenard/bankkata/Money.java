@@ -1,3 +1,5 @@
+package com.thomasbenard.bankkata;
+
 class Money {
     private final double amount;
 

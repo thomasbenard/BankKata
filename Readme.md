@@ -1,19 +1,19 @@
 # Bank account kata
 Create a simple bank application with the following features:
-- Deposit into Account
-- Withdraw from Account
+- Deposit into com.thomasbenard.bankkata.Account
+- Withdraw from com.thomasbenard.bankkata.Account
 - Print a bank statement into the console
 
 ## Objectives
 Learn and practice the double loop of TDD called Acceptance Test Driven Development (ATDD).
 
 ## Requirements
-Write a class `Account` that contains the following three functions:
+Write a class `com.thomasbenard.bankkata.Account` that contains the following three functions:
 > void deposit(int amount);  
 void withdraw(int amount);  
 void printStatements();
 
-You are not allowed to change the signature of these functions nor to add any public method to the Account class, except for constructors.
+You are not allowed to change the signature of these functions nor to add any public method to the com.thomasbenard.bankkata.Account class, except for constructors.
 
 Use Strings for dates and integers for the amounts.
 
