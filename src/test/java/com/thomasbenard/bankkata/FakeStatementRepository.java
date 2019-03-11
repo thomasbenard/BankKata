@@ -1,5 +1,7 @@
 package com.thomasbenard.bankkata;
 
+import java.util.List;
+
 class FakeStatementRepository implements StatementRepository {
 
     private String statement;
@@ -16,6 +18,11 @@ class FakeStatementRepository implements StatementRepository {
     @Override
     public void addWithdrawal(Money amount, Date date) {
         statement = -amount.amount() + " " + date.format();
+    }
+
+    @Override
+    public List<Statement> allStatements() {
+        return null;
     }
 
 }

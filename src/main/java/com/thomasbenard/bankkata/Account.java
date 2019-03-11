@@ -1,5 +1,7 @@
 package com.thomasbenard.bankkata;
 
+import java.util.List;
+
 public class Account {
     private StatementRepository statementRepository;
     private Clock clock;
@@ -15,5 +17,10 @@ public class Account {
 
     void withdraw(Money money) {
         statementRepository.addWithdrawal(money, clock.today());
+    }
+
+    String statements() {
+        List<Statement> statements = statementRepository.allStatements();
+        return statements.get(0).print();
     }
 }
