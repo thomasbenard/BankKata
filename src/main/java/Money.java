@@ -1,7 +1,11 @@
-public class Money {
+class Money {
     private final double amount;
 
-    public Money(double amount) {
+    Money(double amount) {
         this.amount = amount;
+    }
+
+    double amount() {
+        return amount;
     }
 }

@@ -1,5 +1,12 @@
 public class Account {
-    void deposit(Money money) {
+    private StatementRepository statementRepository;
 
+    public Account(StatementRepository statementRepository) {
+
+        this.statementRepository = statementRepository;
+    }
+
+    void deposit(Money money) {
+        statementRepository.addDeposit(money);
     }
 }
