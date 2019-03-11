@@ -2,17 +2,20 @@ package com.thomasbenard.bankkata;
 
 class FakeStatementRepository implements StatementRepository {
 
-    private Money deposit;
-    private Date date;
+    private String statement;
 
     String statements() {
-        return deposit.amount() + " " + date.format();
+        return statement;
     }
 
     @Override
     public void addDeposit(Money amount, Date date) {
-        deposit = amount;
-        this.date = date;
+        statement = amount.amount() + " " + date.format();
+    }
+
+    @Override
+    public void addWithdrawal(Money amount, Date date) {
+        statement = -amount.amount() + " " + date.format();
     }
 
 }

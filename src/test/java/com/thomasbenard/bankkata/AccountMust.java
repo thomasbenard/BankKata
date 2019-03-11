@@ -18,4 +18,9 @@ public class AccountMust {
         assertThat(statementRepository.statements(), containsString("100.0 2019/03/10"));
     }
 
+    @Test
+    public void add_statement_to_repository_when_making_a_withdrawal() {
+        account.withdraw(new Money(100));
+        assertThat(statementRepository.statements(), containsString("-100.0 2019/03/10"));
+    }
 }

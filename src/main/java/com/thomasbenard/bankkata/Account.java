@@ -12,4 +12,8 @@ public class Account {
     void deposit(Money money) {
         statementRepository.addDeposit(money, clock.today());
     }
+
+    void withdraw(Money money) {
+        statementRepository.addWithdrawal(money, clock.today());
+    }
 }
