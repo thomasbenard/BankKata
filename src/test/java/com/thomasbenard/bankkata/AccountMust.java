@@ -5,8 +5,8 @@ import org.junit.Test;
 import java.time.Month;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 
 public class AccountMust {
     private FakeClock clock = new FakeClock(new Date(2019, Month.MARCH, 10));
@@ -30,7 +30,7 @@ public class AccountMust {
         StatementRepository repository = new InMemoryStatementRepository();
         Account account = new Account(repository, clock);
         account.deposit(new Money(100));
-        assertThat(account.statements(), is("DEPOSIT 100.0 2019/03/10 100.0"));
+        assertThat(account.statements(), contains("DEPOSIT 100.0 2019/03/10 100.0"));
     }
 
     @Test
@@ -38,6 +38,16 @@ public class AccountMust {
         StatementRepository repository = new InMemoryStatementRepository();
         Account account = new Account(repository, clock);
         account.withdraw(new Money(100));
-        assertThat(account.statements(), is("WITHDRAWAL 100.0 2019/03/10 -100.0"));
+        assertThat(account.statements(), contains("WITHDRAWAL 100.0 2019/03/10 -100.0"));
+    }
+
+    @Test
+    public void format_all_statements_given_several_transactions() {
+        StatementRepository repository = new InMemoryStatementRepository();
+        Account account = new Account(repository, clock);
+        account.deposit(new Money(100));
+        clock.setDate(new Date(2019, Month.MARCH, 11));
+        account.withdraw(new Money(25));
+        assertThat(account.statements(), contains("DEPOSIT 100.0 2019/03/10 100.0", "WITHDRAWAL 25.0 2019/03/11 75.0"));
     }
 }

@@ -7,12 +7,13 @@ public class Deposit extends Statement {
     }
 
     @Override
-    protected Money balance() {
-        return amount();
-    }
-
-    @Override
     protected String name() {
         return "DEPOSIT";
     }
+
+    @Override
+    Money computeNewBalance(Money oldBalance) {
+        return oldBalance.plus(amount());
+    }
+
 }

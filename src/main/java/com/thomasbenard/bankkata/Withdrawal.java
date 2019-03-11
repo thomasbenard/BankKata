@@ -6,12 +6,12 @@ class Withdrawal extends Statement {
     }
 
     @Override
-    protected Money balance() {
-        return new Money(-amount().amount());
+    protected String name() {
+        return "WITHDRAWAL";
     }
 
     @Override
-    protected String name() {
-        return "WITHDRAWAL";
+    Money computeNewBalance(Money oldBalance) {
+        return oldBalance.minus(amount());
     }
 }

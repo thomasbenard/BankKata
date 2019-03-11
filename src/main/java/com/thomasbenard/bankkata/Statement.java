@@ -11,8 +11,8 @@ public abstract class Statement {
         this.date = date;
     }
 
-    String print() {
-        return detail() + SEPARATOR + balance().amount();
+    String print(Money balance) {
+        return detail() + SEPARATOR + balance.amount();
     }
 
     Money amount() {
@@ -27,7 +27,7 @@ public abstract class Statement {
         return name() + SEPARATOR + amount().amount() + SEPARATOR + date().format();
     }
 
-    protected abstract Money balance();
-
     protected abstract String name();
+
+    abstract Money computeNewBalance(Money oldBalance);
 }
